@@ -16,21 +16,31 @@ public class Main {
     }
 
 
-    public static void twoSum2(Integer target, Integer[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[i] + arr[j] == target) {
-                    System.out.printf("index: [%d, %d]", j, i);
+
+    public static int[] twoSum2(int[] nums, int target) {
+        if (nums.length < 2) {
+            return new int[]{};
+        } else {
+            for (int i = 0; i < nums.length; i++) {
+                for (int j = 0; j < nums.length; j++) {
+                    if (i == j) {
+                        continue;
+                    } else {
+                        if (nums[i] + nums[j] == target) {
+                            return new int[]{i, j};
+                        }
+                    }
                 }
             }
+            return new int[]{};
         }
     }
+
 
 
     public static void main(String[] args) {
         Integer[] arr = {1, 30, 12, 4, 51};
         twoSum1(81, arr);
-        twoSum2(81, arr);
         System.out.printf("\n השיטה הכי טובה מבחינת ביצועים היא השיטה הראשונה כי היא יותר מהירה ויעילה יותר ");
     }
 }
